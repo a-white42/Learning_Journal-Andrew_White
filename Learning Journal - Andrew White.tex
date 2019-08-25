@@ -1,0 +1,239 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, total={160mm,257mm}, left=25mm, top=20mm}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.0}
+
+\usepackage{array}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\title{Learning Journal}
+\author{Andrew White}
+\date{Semester 2 - 2019}
+
+\begin{document}
+
+\maketitle
+The purpose of this journal is to document the objective, action, errors and results of tasks set for the FOAR705 Unit. The Journal is being done in LeTeX, which will be a good learning exercise for myself, as someone who has never used LaTeX before. 
+
+\section{Week 1}
+\subsection{Install Software} 
+
+\noindent \textbf{Objective:} Install software Rstudio, Slack and login to Cloudstor and Github \\
+
+\noindent \textbf{Action:} download \verb|rstudio-1.2.1335-x86_64.rpm| from the RStudio website and use the wget command to download Slack. Logged on to Cloudstor and created a github account without any problems. Github user name is a-white42\\\
+
+\noindent install using: rpm -U \verb|rstudio-1.2.1335-x86_64.rpm|\\
+
+\noindent wget \verb|https://downloads.slack-edge.com/linux_releases/slack-3.4.0-0.1.fc21.x86_64.rpm|\\
+
+\noindent sudo dnf localinstall \verb|slack-3.4.0-0.1.fc21.x86_64.rpm|\\
+
+\noindent \textbf{Errors:} RStudio returns an error message because R programming language is not installed on my system.\\
+
+\noindent \textbf{Action:} sudo yum install R\\
+
+\noindent \textbf{Result:} RStudio runs perfectly. 
+
+\section{Week 2}
+
+\subsection{Restore Backup}
+
+\noindent \textbf{Objective:} Restore a file from a 6 month or older backup. Document how it goes.\\
+
+\noindent \textbf{Action:}  The intention of this action is to see if I can successfully restore and read a backup that is over 6 months old. The process involved a manual search of my external hard drives searching for an older project and copying a drawing into my current projects directory.\\
+
+\noindent \textbf{Errors:} None.. 
+
+\noindent \textbf{Result:} The restore was successful and I was able to open the drawing in AutoCAD without any errors.
+
+\subsection{LaTeX}
+
+\noindent \textbf{Objective:} I have decided to use LaTeX for my Learning Journal to force myself to learn LaTeX and hopefully through the process develop a better understanding. I would like to be able to use LaTex to write some papers so learning footnotes will be key to this.\\ 
+
+\noindent \textbf{Action:} I have Currently installed two LaTeX editors on my Fedora system, however, I am starting with Overleaf as it seems like a good starting point. Overleaf provides a nice preview, which GNOME LaTeX and TeXStudio do not seem to (or I just do not understand how to configure it to do this yet), it also has lots of templates and while I am trying to avoid templates for the purpose of learning it will be useful to see what is possible and how you might go about achieving a desired result.
+
+I created a basic LaTeX document in Overleaf using the Source tab so that I can become familiar with several of the basic commands.\\
+
+\noindent \textbf{Errors:} I have discovered, through error that the backslash end{document} command does not end the section but ends the document and having two of these in the TeX file causes a wee little problem.\\  
+
+\noindent \textbf{Result:} I have written the first two journal entries and have a few comments. I need a better understanding of how to set out the document. Currently I am using the section command for week entries and the subsection command for different content. This might not be the best way to do this but seems okay for now.\\
+
+\subsection{Some useful LaTex Commands} 
+
+\begin{verbatim}
+\textit{text in italics} 
+\underline{text underlined}
+\textbf{text in bold}
+\large {large words}\\
+\\ forces a new paragraph
+\vspace{5mm} makes a space between lines of a specified amount.
+\noindent if you don't want an indent at the begining of a paragraph.
+\normalsize normal size font
+\small small font
+\large large font
+\tiny tiny font
+
+\end{verbatim}
+
+Examples:
+
+\textit{text in italics} 
+\underline{text underlined}
+\textbf{text in bold}
+\large {large words}\\
+
+\vspace{5mm}
+LaTeX produces two kinds of {\textbf{lists}}. \textbf{enumerate} produces numbered lists and \textbf{itemize} produces bullet point lists. Here is an example.
+\begin{enumerate}
+\item First numbered item
+\item Second numbered item
+\begin{itemize}
+\item First bullet point
+\item Second bullet point
+\end{itemize}
+\item Third numbered item
+\end{enumerate}
+
+\noindent \textbf{Error:} The Large text command I entered above was still active. To fix this I needed to reinstate the \textbackslash normalsize font command.
+
+\vspace{5mm}
+
+\normalsize 
+
+In order to use hyperlinks in LaTex, we have to import the hyperref usepackage in the preamble of the document. \verb|\usepackage{hyperref}| It is recommended that this is the last package to get loaded otherwise it could cause problems.
+
+Example: Hyperlink opens in a new page.
+
+\url{https://www.overleaf.com/learn/latex/Page_size_and_margins}
+
+\subsection{Data Carpentry}
+
+\noindent \textbf{Objective:} Complete Data Carpentry called Data Organization in Spreadsheets for Ecologists found at \url{https://datacarpentry.org/spreadsheet-ecology-lesson/}\\
+
+\noindent \textbf{Action:} Finished all 6 lessons\\
+
+\noindent \textbf{Errors:} No Errors\\
+
+\noindent \textbf{Result:} Notes kept in Joplin for future reference. \\
+
+
+\section{Week 3}
+
+\subsection{LaTeX Scoping Exercise}
+
+\noindent \textbf{Objective:} While doing the scoping exercise I needed to add a table to demonstrate a spreadsheet layout concept.\\
+
+\noindent \textbf{Action:} I did some reading and discovered that there are several ways to add tables, however, I good suggested method is to load \verb|\usepackage{array}| in the preamble. The section of a TeX document between\verb|\documentclass{...} and \begin{document}| is called the preamble. This section normally contains commands that affect the entire document such as setting document type, paper size, fonts, margins, etc...\\
+
+\noindent \underline{This is a sample table}
+\begin{center}
+\begin{tabular}{ | m{2.5cm} | m{6cm}| m{6cm} | } 
+\hline
+Column 1 & Column 2 & Column 3 \\ 
+\hline
+Text 1 & Text 2 & Text 3 \\ 
+\hline
+\end{tabular}
+\end{center}
+
+\noindent \textbf{Errors:}  I encountered some errors initially such as the table was going off the page. This was fixed with the addition of the \verb|\usepackage{array}|\\ 
+
+\noindent \textbf{Result:} I was able to successfully add a table to my Scoping Exercise.
+You can add footnote with the \textbackslash footnote command \footnote{Footnotes are added using \textbackslash footnote, with the footnote content in curly brackets.}
+
+\subsection{BibTeX}
+
+\noindent \textbf{Objective:} get BibTeX working in my Scoping exercise as a proof of concept. 
+
+\noindent \textbf{Action:}: Created a BibTex filed called ref01.bib with a sample entry.
+Added the bibliography commands to my LaTex document.
+\begin{verbatim}
+\bibliography{ref01.bib}
+\bibliographystyle{ieeetr} The ieeetr variable is the citation style. 
+\end{verbatim}
+\noindent \textbf{Errors:} None... I was actually very surprised that I got this to work without any dramas.
+
+\noindent \textbf{Result:} I am happy with this result. I can now create an independent bibliography file and reference it from within a LaTeX document. I found also that the cite button on google scholar also has a function to create BibTeX code which you can copy/paste into the bibliography.bib file. 
+
+\newpage
+
+\section{Week 4}
+
+\underline {Things to do}
+
+\begin{enumerate}
+\item Do all data carpentry exercises.
+\item Export the csv. View it in a text editor like Atom.io, Sublime Text, or notepad++ Think about the benefits of an always-readable and not tied to a subscription or specific program data format
+\item Proof of Concept assignment 
+\item I found lessons on Version Control with Git http://swcarpentry.github.io/git-novice/
+\end{enumerate}
+
+\subsection{Data Carpentry}
+
+Since I finished the data carpentry exercises in week 2, I though I would review the dates as data lesson and test exporting CVS data.
+
+\noindent \textbf{Objective:} Data Carpentry Dates as data
+
+Important tip, write the month part of your date as letters so there is no confusion which date format you are using. 
+
+The ISO 8601 standard is YEAR-MONTH-DAY
+
+\noindent \textbf{Errors:} None..
+
+\noindent \textbf{Result:} Successfully completed Data Carpentry exercises and exported CVS data. Note, CVS data loses all formatting such as colours, column width and height information as well as data validation. 
+
+\subsection{Scoping Exercise II}
+
+\noindent \textbf{Objective:} Complete Scoping Exercise II in LaTeX
+
+\noindent \textbf{Action:}:Create Scoping Exercise II in LateX using my previous Create Scoping Exercise I LaTeX document as a template. Added some addition formatting to improve the layout including usepackage fancyhdr
+
+\noindent \textbf{Errors:} Package Fancyhdr Warning: \textbackslash headheight is too small (12.0pt): Make it at least 13.59999pt. We now make it that large for the rest of the document. This may cause the page layout to be inconsistent, however.
+
+\noindent \textbf{Result:} Scoping Exercise II created successfully with the expect of this error which needs some further problem solving.
+ 
+\newpage
+
+\section{Week 5}
+
+\underline {Things to do this week}
+ 
+Set work:
+\begin{enumerate}
+    \item Work on: http://swcarpentry.github.io/shell-novice/ and do episodes : Introduction, Navigating Files and Directories, Working with Files. Put results into a new (or new section, or otherwise demarcate them) learning journal.
+    
+    I should do some additional unix learning here since I have been a unix/linux user since 1993. I will see how it goes since you always pick up something new when revising old material. 
+    
+    \item Finish Elaboration I. This is due in cloudstor only before the Week 5 class (though it will form part of your Elaboration II submission). Commit to git as you are committing all assignments, in whatever organisation you choose. 
+
+\end{enumerate}
+
+Other work:
+
+I have neglected learning how to commit my journal in Overleaf to github automatically. I searched Slack and found Brian's post on this procedure.\\
+
+\url{https://www.overleaf.com/learn/how-to/How_do_I_connect_an_Overleaf_project_with_a_repo_on_GitHub,_GitLab_or_BitBucket%3F}\\
+
+
+
+
+
+
+\newpage
+
+\subsection{Template Section}
+
+\textbf{Objective:}
+
+\textbf{Action:}
+
+\textbf{Errors:}
+
+\textbf{Results:}
+
+
+\end{document}
